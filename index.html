@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nazeer Foods – Best Mughlai & North Indian Restaurant</title>
+  <meta name="description" content="Enjoy the Mouth Watering taste of Authentic Mughlai Foods. Mutton Nihari, Korma, Stew, Chicken Biryani & more. Dine-in, Delivery, Takeaway.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-inner">
+      <div class="loader-circle"></div>
+      <div class="loader-logo">
+        <span class="loader-n">N</span>
+        <span class="loader-text">AZEER FOODS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/12/Logo-for-app.png" alt="Nazeer Foods" id="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#menu" class="nav-link" data-section="menu">Menu</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <a href="https://order.nazeerfoods.com" target="_blank" class="nav-order-btn">Order Now</a>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-particles" id="hero-particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Since Four Decades</div>
+      <h1 class="hero-title">
+        <span class="hero-title-line">ROYAL</span>
+        <span class="hero-title-line gold">MUGHLAI</span>
+        <span class="hero-title-line">CUISINE</span>
+      </h1>
+      <p class="hero-subtitle">Authentic flavors from the Mughal era, brought to life by Mr. Aftab Ahmed. 
+      Experience the rich aroma and taste of traditional Mughlai & North Indian delicacies.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="https://order.nazeerfoods.com" target="_blank" class="btn-secondary">Order Online</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">40+</span>
+          <span class="stat-label">Years Legacy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Menu Items</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Outlets Planned</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-3d-container" id="hero-3d">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+      <span>Scroll to Explore</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-bg-pattern"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Our Story</span>
+        <h2 class="section-title">ABOUT US</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">✦</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-col" data-animate="slide-left">
+          <div class="about-image-frame">
+            <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/owner.png" alt="Mr. Aftab Ahmed - Founder" class="about-owner-img">
+            <div class="about-image-glow"></div>
+          </div>
+          <div class="about-founder-card">
+            <span class="founder-name">Mr. Aftab Ahmed</span>
+            <span class="founder-title">Founder & Visionary</span>
+          </div>
+        </div>
+        <div class="about-text-col" data-animate="slide-right">
+          <p class="about-text">Since Four Decades, Nazeer has been serving its royal Mughlai Cuisine. We have the best delicious food from the Mughal era, brought to life by Mr. Aftab Ahmed with his scintillating recipes.</p>
+          <p class="about-text">Our menu has vast choices from traditional Mughlai & Indian Curries along with tempting tandoori and fried dishes. We feel pride serving our royal food with rich aroma and authentic Mughlai taste, at reasonable prices.</p>
+          <p class="about-text">Mr. Aftab Ahmed started with a limited menu of lip-smacking kebabs and fried chicken. With Kebabs becoming an instant hit, he innovated and created fried chicken lollipop — a landmark product in Nazeer's history.</p>
+          <div class="about-signature">
+            <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/signature.png" alt="Signature" class="signature-img">
+          </div>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">🏆</div>
+              <span>Award-Winning Recipes</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🌿</div>
+              <span>Fresh Ingredients</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">👨‍🍳</div>
+              <span>Expert Chefs</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🚀</div>
+              <span>Fast Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision & Mission -->
+      <div class="vision-mission-grid">
+        <div class="vm-card vision-card" data-animate="fade-up">
+          <div class="vm-icon">👁️</div>
+          <h3>OUR VISION</h3>
+          <p>We just don't happen to be a business that sells food – it's what we're all about. Cook delicious food. Offer heartfelt welcoming service. Give back to society. Run an efficient & profitable business.</p>
+          <p>Make Nazeer a better place for both our customers and employees. We have a plan to open 500+ outlets in the next five years.</p>
+        </div>
+        <div class="vm-card mission-card" data-animate="fade-up" style="animation-delay:0.2s">
+          <div class="vm-icon">🎯</div>
+          <h3>OUR MISSION</h3>
+          <p>Food is the essence of who we are. Food should taste and smell great as it has a direct impact on the health and wellness of individuals, communities and the environment.</p>
+          <p>We want to make the word "Wah" synonymous with Nazeer by providing hygienic & mouth-watering food.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Food Scroll Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Scroll to Discover</span>
+        <h2 class="section-title">BEST SELLERS</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">✦</span>
+          <span class="divider-line"></span>
+        </div>
+        <p class="section-subtitle">At Nazeer Foods we speak the good food language, quality is our recipe. Come on in and treat yourself with the best food.</p>
+      </div>
+
+      <!-- 3D Scroll Food Items -->
+      <div class="food-scroll-wrapper" id="food-scroll-wrapper">
+        
+        <!-- Food Item 1: Mutton Raan -->
+        <div class="food-scene" data-item="0">
+          <div class="food-3d-stage" id="food-stage-0">
+            <canvas class="food-canvas" id="food-canvas-0" data-dish="mutton-raan"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" class="food-real-img">
+            <div class="food-emoji-fallback">🥩</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Signature Dish</div>
+            <h3 class="food-name">Mutton Raan</h3>
+            <p class="food-desc">A whole leg of mutton slow-cooked to perfection with aromatic Mughlai spices and saffron. A royal feast for the senses.</p>
+            <div class="food-ingredients" id="ingredients-0">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🥩 Whole Leg Mutton</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🧅 Onion</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🧄 Garlic</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🌶️ Spices</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🌸 Saffron</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🥛 Yogurt</div>
+              </div>
+            </div>
+            <div class="food-scroll-hint">Scroll to disassemble ↓</div>
+          </div>
+        </div>
+
+        <!-- Food Item 2: Mutton Nihari -->
+        <div class="food-scene" data-item="1">
+          <div class="food-3d-stage" id="food-stage-1">
+            <canvas class="food-canvas" id="food-canvas-1" data-dish="nihari"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" class="food-real-img">
+            <div class="food-emoji-fallback">🥩</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Mughlai Classic</div>
+            <h3 class="food-name">Mutton Nihari</h3>
+            <p class="food-desc">Slow-cooked mutton in a rich, spiced broth. This dawn dish from the Mughal courts is our most beloved creation.</p>
+            <div class="food-ingredients" id="ingredients-1">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🥩 Mutton Shank</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🫚 Ghee</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🧅 Onion</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🌶️ Nihari Masala</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🫚 Wheat Flour</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🫚 Ginger</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Item 3: Chicken Lollipop -->
+        <div class="food-scene" data-item="2">
+          <div class="food-3d-stage" id="food-stage-2">
+            <canvas class="food-canvas" id="food-canvas-2" data-dish="lollipop"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" class="food-real-img">
+            <div class="food-emoji-fallback">🍗</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Nazeer's Signature</div>
+            <h3 class="food-name">Chicken Lollipop</h3>
+            <p class="food-desc">Mr. Aftab Ahmed's iconic invention that became a landmark in Nazeer's history. Crispy fried chicken on the bone.</p>
+            <div class="food-ingredients" id="ingredients-2">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🍗 Chicken Wings</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🥚 Egg</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🌶️ Red Chili</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🧄 Garlic</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🫚 Oil</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🌿 Herbs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Item 4: Mughlai Keema -->
+        <div class="food-scene" data-item="3">
+          <div class="food-3d-stage" id="food-stage-3">
+            <canvas class="food-canvas" id="food-canvas-3" data-dish="keema"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" class="food-real-img">
+            <div class="food-emoji-fallback">🐔</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Mughlai Specialty</div>
+            <h3 class="food-name">Chicken Mughlai Keema</h3>
+            <p class="food-desc">Minced chicken cooked in the finest Mughlai spices with a blend of fresh herbs. A hearty dish that warms the soul.</p>
+            <div class="food-ingredients" id="ingredients-3">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🐔 Minced Chicken</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🧅 Onion</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🍅 Tomato</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🌶️ Spices</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🌿 Coriander</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🧄 Garlic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Item 5: Chicken Biryani -->
+        <div class="food-scene" data-item="4">
+          <div class="food-3d-stage" id="food-stage-4">
+            <canvas class="food-canvas" id="food-canvas-4" data-dish="biryani"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" class="food-real-img">
+            <div class="food-emoji-fallback">🍛</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">All-Time Favorite</div>
+            <h3 class="food-name">Chicken Biryani</h3>
+            <p class="food-desc">Fragrant basmati rice layered with juicy chicken pieces and exotic spices. A symphony of flavors in every bite.</p>
+            <div class="food-ingredients" id="ingredients-4">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🍗 Chicken</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🍚 Basmati Rice</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🧅 Fried Onion</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🌸 Saffron</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🌿 Mint</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🧄 Spices</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Item 6: Afghani Tikka -->
+        <div class="food-scene" data-item="5">
+          <div class="food-3d-stage" id="food-stage-5">
+            <canvas class="food-canvas" id="food-canvas-5" data-dish="tikka"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Afghani_Tikka_.png" alt="Chicken Afghani Tikka" class="food-real-img">
+            <div class="food-emoji-fallback">🍗</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Tandoori Special</div>
+            <h3 class="food-name">Chicken Afghani Tikka</h3>
+            <p class="food-desc">Tender chicken marinated in cream and Afghan spices, cooked to smoky perfection in our tandoor oven.</p>
+            <div class="food-ingredients" id="ingredients-5">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🍗 Chicken</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🥛 Fresh Cream</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🧄 Garlic Paste</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🌿 Coriander</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🫙 Yogurt</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🔥 Tandoor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Item 7: Tandoori Chicken -->
+        <div class="food-scene" data-item="6">
+          <div class="food-3d-stage" id="food-stage-6">
+            <canvas class="food-canvas" id="food-canvas-6" data-dish="tandoori"></canvas>
+            <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tandoori_Chicken_.png" alt="Tandoori Chicken" class="food-real-img">
+            <div class="food-emoji-fallback">🐔</div>
+          </div>
+          <div class="food-info">
+            <div class="food-category">Classic Tandoor</div>
+            <h3 class="food-name">Tandoori Chicken</h3>
+            <p class="food-desc">Whole chicken marinated in spiced yogurt and roasted in our clay tandoor. The quintessential Indian BBQ experience.</p>
+            <div class="food-ingredients" id="ingredients-6">
+              <span class="ingredient-label">Key Ingredients:</span>
+              <div class="ingredients-list">
+                <div class="ingredient-chip" style="--delay:0s">🐔 Whole Chicken</div>
+                <div class="ingredient-chip" style="--delay:0.1s">🫙 Yogurt</div>
+                <div class="ingredient-chip" style="--delay:0.2s">🌶️ Red Chili</div>
+                <div class="ingredient-chip" style="--delay:0.3s">🧄 Ginger Garlic</div>
+                <div class="ingredient-chip" style="--delay:0.4s">🌿 Spices</div>
+                <div class="ingredient-chip" style="--delay:0.5s">🔥 Clay Oven</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- End food-scroll-wrapper -->
+
+      <!-- Full Menu CTA -->
+      <div class="menu-cta" data-animate="fade-up">
+        <p>Explore our complete menu including Korma, Stew, Tawa Chicken, N-Dose Chicken and many more!</p>
+        <a href="https://order.nazeerfoods.com" target="_blank" class="btn-primary">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="experience-bg"></div>
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-badge">Why Choose Us</span>
+        <h2 class="section-title">THE NAZEER EXPERIENCE</h2>
+        <div class="section-divider">
+          <span class="divider-line light"></span>
+          <span class="divider-icon">✦</span>
+          <span class="divider-line light"></span>
+        </div>
+      </div>
+      <div class="experience-grid">
+        <div class="exp-card" data-animate="fade-up" style="--i:0">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🍽️</div>
+          </div>
+          <h4>Dine-In</h4>
+          <p>Experience the royal ambiance at our restaurants. Every meal is an occasion to remember.</p>
+        </div>
+        <div class="exp-card" data-animate="fade-up" style="--i:1">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🛵</div>
+          </div>
+          <h4>Home Delivery</h4>
+          <p>Get the authentic Mughlai flavors delivered hot and fresh right at your doorstep.</p>
+        </div>
+        <div class="exp-card" data-animate="fade-up" style="--i:2">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">📦</div>
+          </div>
+          <h4>Takeaway</h4>
+          <p>Order and pick up. Perfect for when you want restaurant-quality food on the go.</p>
+        </div>
+        <div class="exp-card" data-animate="fade-up" style="--i:3">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🏪</div>
+          </div>
+          <h4>Bulk Orders</h4>
+          <p>Planning an event? We cater for parties, corporate events and special occasions.</p>
+        </div>
+        <div class="exp-card" data-animate="fade-up" style="--i:4">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🥩</div>
+          </div>
+          <h4>Fresh Meat Shop</h4>
+          <p>Visit NazeerFresh for premium quality fresh meats sourced directly for your home cooking.</p>
+        </div>
+        <div class="exp-card" data-animate="fade-up" style="--i:5">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🤝</div>
+          </div>
+          <h4>Franchise</h4>
+          <p>Become a part of the Nazeer family. Join us in our vision of 500+ outlets across India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Strip -->
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <span class="section-badge">Visual Feast</span>
+      <h2 class="section-title">FOOD GALLERY</h2>
+    </div>
+    <div class="gallery-strip" id="gallery-strip">
+      <div class="gallery-track" id="gallery-track">
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" loading="lazy">
+          <div class="gallery-overlay"><span>Mutton Raan</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" loading="lazy">
+          <div class="gallery-overlay"><span>Mutton Nihari</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" loading="lazy">
+          <div class="gallery-overlay"><span>Chicken Lollipop</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" loading="lazy">
+          <div class="gallery-overlay"><span>Mughlai Keema</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/n-dose-chicken.png" alt="N-Dose Chicken" loading="lazy">
+          <div class="gallery-overlay"><span>N-Dose Chicken</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" loading="lazy">
+          <div class="gallery-overlay"><span>Chicken Biryani</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Afghani_Tikka_.png" alt="Afghani Tikka" loading="lazy">
+          <div class="gallery-overlay"><span>Afghani Tikka</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tawa_Chicken_Changeji_With_Bone.png" alt="Tawa Chicken" loading="lazy">
+          <div class="gallery-overlay"><span>Tawa Chicken</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tandoori_Chicken_.png" alt="Tandoori Chicken" loading="lazy">
+          <div class="gallery-overlay"><span>Tandoori Chicken</span></div>
+        </div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" loading="lazy">
+          <div class="gallery-overlay"><span>Mutton Raan</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" loading="lazy">
+          <div class="gallery-overlay"><span>Mutton Nihari</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" loading="lazy">
+          <div class="gallery-overlay"><span>Chicken Lollipop</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" loading="lazy">
+          <div class="gallery-overlay"><span>Mughlai Keema</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/n-dose-chicken.png" alt="N-Dose Chicken" loading="lazy">
+          <div class="gallery-overlay"><span>N-Dose Chicken</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" loading="lazy">
+          <div class="gallery-overlay"><span>Chicken Biryani</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">CONTACT US</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">✦</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-col">
+          <div class="contact-card" data-animate="fade-up">
+            <div class="contact-icon">🏢</div>
+            <h4>Corporate Office</h4>
+            <p>904, 10th Floor, KM Trade Tower,<br>Radisson Blu Hotel, Kaushambi,<br>Ghaziabad (U.P) - 201010</p>
+          </div>
+          <div class="contact-card" data-animate="fade-up" style="--i:1">
+            <div class="contact-icon">🏠</div>
+            <h4>Registered Address</h4>
+            <p>D-590, West Vinod Nagar,<br>New Delhi - 110091</p>
+          </div>
+          <div class="contact-card" data-animate="fade-up" style="--i:2">
+            <div class="contact-icon">📞</div>
+            <h4>Help Line</h4>
+            <p><a href="tel:+918882288822">88822 88822</a></p>
+          </div>
+          <div class="contact-card" data-animate="fade-up" style="--i:3">
+            <div class="contact-icon">✉️</div>
+            <h4>Email Us</h4>
+            <p><a href="mailto:crm@nazeerfoods.com">crm@nazeerfoods.com</a></p>
+          </div>
+          <div class="social-links" data-animate="fade-up">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/nazeer.foods/" target="_blank" class="social-btn facebook">f</a>
+              <a href="https://www.instagram.com/nazeer_foods/" target="_blank" class="social-btn instagram">📷</a>
+              <a href="https://twitter.com/foods_nazeer" target="_blank" class="social-btn twitter">𝕏</a>
+              <a href="https://www.youtube.com/channel/UCLkhcRVPp6Mu2EE1W5y9POw" target="_blank" class="social-btn youtube">▶</a>
+              <a href="https://in.pinterest.com/foods1361" target="_blank" class="social-btn pinterest">𝗣</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-order-col" data-animate="slide-right">
+          <div class="order-options">
+            <h3>Order Your Food</h3>
+            <p>Choose how you'd like to enjoy our royal Mughlai cuisine</p>
+            <a href="https://order.nazeerfoods.com" target="_blank" class="order-option-btn">
+              <div class="order-option-icon">🍽️</div>
+              <div class="order-option-text">
+                <strong>Restaurant Order</strong>
+                <span>Dine-in or home delivery</span>
+              </div>
+              <div class="order-arrow">→</div>
+            </a>
+            <a href="https://nazeerfresh.com/" target="_blank" class="order-option-btn">
+              <div class="order-option-icon">🥩</div>
+              <div class="order-option-text">
+                <strong>Fresh Meat Shop</strong>
+                <span>Premium quality meats</span>
+              </div>
+              <div class="order-arrow">→</div>
+            </a>
+            <a href="https://bulk.nazeerfoods.com" target="_blank" class="order-option-btn">
+              <div class="order-option-icon">📦</div>
+              <div class="order-option-text">
+                <strong>Bulk Orders</strong>
+                <span>Events & catering</span>
+              </div>
+              <div class="order-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/12/Logo-for-app.png" alt="Nazeer Foods">
+        <p>Best Mughlai & North Indian Restaurant in India</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="https://nazeerfoods.com/franchise/" target="_blank">Franchise</a></li>
+          <li><a href="https://nazeerfoods.com/careers-nazeer-foods/" target="_blank">Careers</a></li>
+          <li><a href="https://nazeerfoods.com/blogs/" target="_blank">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Order</h4>
+        <ul>
+          <li><a href="https://order.nazeerfoods.com" target="_blank">Restaurant</a></li>
+          <li><a href="https://nazeerfresh.com/" target="_blank">Meat Shop</a></li>
+          <li><a href="https://bulk.nazeerfoods.com" target="_blank">Bulk Orders</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Nazeer Foods 2024 | All rights reserved. | Terms & Conditions</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Three.js and GSAP for 3D/Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
