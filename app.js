@@ -968,17 +968,17 @@ function initCursorEffect() {
     dot.style.left = dotX + 'px';
     dot.style.top = dotY + 'px';
     const scale = isHovering ? 1.3 : 1;
-    dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(\${scale})\`;
+    dot.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(${scale})`;
   });
 
   document.querySelectorAll('a, button, .food-3d-stage, .gallery-item').forEach(el => {
     el.addEventListener('mouseenter', () => {
       isHovering = true;
-      dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(1.3)\`;
+      dot.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(1.3)`;
     });
     el.addEventListener('mouseleave', () => {
       isHovering = false;
-      dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(1)\`;
+      dot.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(1)`;
     });
   });
 }
