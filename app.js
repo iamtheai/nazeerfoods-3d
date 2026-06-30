@@ -930,62 +930,55 @@ function initCursorEffect() {
 
   const dot = document.createElement('div');
   dot.id = 'cursor-dot';
-  // Custom SVG Clove (Laung)
-  dot.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));">
+  // Custom SVG Clove (Laung) - Mote size (larger)
+  dot.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));">
     <path fill="#8B4513" d="M11 5 L9 2 L12 0 L15 2 L13 5 L14 22 C14 23.1 13.1 24 12 24 C10.9 24 10 23.1 10 22 L11 5 Z" />
     <circle fill="#3E2723" cx="12" cy="1" r="1.5" />
     <circle fill="#3E2723" cx="9" cy="3" r="1.5" />
     <circle fill="#3E2723" cx="15" cy="3" r="1.5" />
   </svg>`;
   dot.style.cssText = `
-    position:fixed; width:28px; height:28px; 
+    position:fixed; width:48px; height:48px; 
     pointer-events:none; z-index:10000; transform:translate(-50%,-50%) rotate(45deg);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  `;
-  
-  const ring = document.createElement('div');
-  ring.id = 'cursor-ring';
-  ring.style.cssText = `
-    position:fixed; width:44px; height:44px; border-radius:50%;
-    border: 2px solid rgba(212,175,55,0.7); pointer-events:none;
-    z-index:9998; transform:translate(-50%,-50%); 
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.15s ease-out;
   `;
   
   document.body.appendChild(dot);
-  document.body.appendChild(ring);
   
   let dotX = window.innerWidth / 2;
   let dotY = window.innerHeight / 2;
-  let rx = dotX, ry = dotY;
+  let lastX = dotX;
+  let lastY = dotY;
+  let angle = 45;
+  let isHovering = false;
   
   document.addEventListener('mousemove', e => {
     dotX = e.clientX;
     dotY = e.clientY;
+    
+    const dx = dotX - lastX;
+    const dy = dotY - lastY;
+    
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+      angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      lastX = dotX;
+      lastY = dotY;
+    }
+    
     dot.style.left = dotX + 'px';
     dot.style.top = dotY + 'px';
+    const scale = isHovering ? 1.3 : 1;
+    dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(\${scale})\`;
   });
-
-  // Snappy animation loop for the circle to run fast
-  const updateCursor = () => {
-    rx += (dotX - rx) * 0.35; // Increased speed (was 0.18)
-    ry += (dotY - ry) * 0.35;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(updateCursor);
-  };
-  requestAnimationFrame(updateCursor);
 
   document.querySelectorAll('a, button, .food-3d-stage, .gallery-item').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      dot.style.transform = 'translate(-50%,-50%) rotate(225deg) scale(1.3)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1.2)';
-      ring.style.backgroundColor = 'rgba(212,175,55,0.15)';
+      isHovering = true;
+      dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(1.3)\`;
     });
     el.addEventListener('mouseleave', () => {
-      dot.style.transform = 'translate(-50%,-50%) rotate(45deg) scale(1)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.backgroundColor = 'transparent';
+      isHovering = false;
+      dot.style.transform = \`translate(-50%,-50%) rotate(\${angle}deg) scale(1)\`;
     });
   });
 }
