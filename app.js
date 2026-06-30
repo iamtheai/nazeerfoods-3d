@@ -238,33 +238,14 @@ function createBayLeaf(THREE) {
   return mesh;
 }
 
-function createClove(THREE) {
-  const group = new THREE.Group();
-  const stemGeo = new THREE.CylinderGeometry(0.1, 0.05, 0.6, 8);
-  const mat = new THREE.MeshStandardMaterial({ color: 0x3E2723, roughness: 0.9 });
-  const stem = new THREE.Mesh(stemGeo, mat);
-  stem.position.y = -0.15;
-  group.add(stem);
-  const headGeo = new THREE.DodecahedronGeometry(0.15);
-  const head = new THREE.Mesh(headGeo, mat);
-  head.position.y = 0.2;
-  group.add(head);
-  return group;
-}
+const globalTextureLoader = new THREE.TextureLoader();
 
-function createTomato(THREE) {
-  const group = new THREE.Group();
-  const bodyGeo = new THREE.SphereGeometry(0.5, 16, 16);
-  bodyGeo.scale(1, 0.85, 1);
-  const bodyMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.3, metalness: 0.1 });
-  const body = new THREE.Mesh(bodyGeo, bodyMat);
-  group.add(body);
-  const stemGeo = new THREE.CylinderGeometry(0.2, 0.0, 0.05, 5);
-  const stemMat = new THREE.MeshStandardMaterial({ color: 0x228B22 });
-  const stem = new THREE.Mesh(stemGeo, stemMat);
-  stem.position.y = 0.42;
-  group.add(stem);
-  return group;
+function createRealIngredient(THREE, path, scale) {
+  const texture = globalTextureLoader.load(path);
+  const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(scale, scale, 1);
+  return sprite;
 }
 
 function createRiceGrains(THREE, count, rMax, hMax) {
@@ -492,10 +473,13 @@ function initHeroCanvas() {
 
   const floatingItems = [];
   const ingredients = [
-    createClove(THREE), createClove(THREE), createClove(THREE),
-    createTomato(THREE), createTomato(THREE),
-    createChili(THREE), createOnionRing(THREE), createBayLeaf(THREE),
-    createStarAnise(THREE), createCardamom(THREE)
+    createRealIngredient(THREE, 'clove_alpha.png', 1.0),
+    createRealIngredient(THREE, 'clove_alpha.png', 0.8),
+    createRealIngredient(THREE, 'clove_alpha.png', 1.2),
+    createRealIngredient(THREE, 'tomato_alpha.png', 2.0),
+    createRealIngredient(THREE, 'tomato_alpha.png', 1.5),
+    createRealIngredient(THREE, 'chili_alpha.png', 1.8),
+    createRealIngredient(THREE, 'chili_alpha.png', 1.6)
   ];
   
   ingredients.forEach((item, i) => {
@@ -511,9 +495,10 @@ function initHeroCanvas() {
     const s = 1.0 + Math.random() * 0.5;
     item.scale.set(s, s, s);
     item.userData = {
-      rx: (Math.random() - 0.5) * 0.04,
-      ry: (Math.random() - 0.5) * 0.04,
-      rz: (Math.random() - 0.5) * 0.04
+      thetaOffset: Math.random() * Math.PI * 2,
+      bobSpeed: 0.02 + Math.random() * 0.02,
+      rz: (Math.random() - 0.5) * 0.02,
+      baseY: item.position.y
     };
     floatingItems.push(item);
     group.add(item);
@@ -548,9 +533,9 @@ function initHeroCanvas() {
     group.rotation.y += (mouseX * 0.1 - group.rotation.y) * 0.05;
 
     floatingItems.forEach(item => {
-      item.rotation.x += item.userData.rx;
-      item.rotation.y += item.userData.ry;
-      item.rotation.z += item.userData.rz;
+      item.userData.thetaOffset += item.userData.bobSpeed;
+      item.position.y = item.userData.baseY + Math.sin(item.userData.thetaOffset) * 0.4;
+      if (item.material) item.material.rotation += item.userData.rz;
     });
 
     renderer.render(scene, camera);
