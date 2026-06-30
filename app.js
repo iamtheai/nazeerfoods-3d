@@ -537,17 +537,9 @@ function initHeroCanvas() {
   (function anim() {
     requestAnimationFrame(anim);
     time += 0.01;
-    // Slow float
-    group.position.y = Math.sin(time * 0.7) * 0.18;
-    // Mouse react tilt
+    // Mouse react tilt only (no bouncy float)
     group.rotation.x += (-mouseY * 0.1 - group.rotation.x + 0.3) * 0.05;
     group.rotation.y += (mouseX * 0.1 - group.rotation.y) * 0.05;
-
-    floatingItems.forEach(item => {
-      item.userData.thetaOffset += item.userData.bobSpeed;
-      item.position.y = item.userData.baseY + Math.sin(item.userData.thetaOffset) * 0.4;
-      if (item.material) item.material.rotation += item.userData.rz;
-    });
 
     renderer.render(scene, camera);
   })();
