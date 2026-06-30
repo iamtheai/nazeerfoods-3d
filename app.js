@@ -486,7 +486,7 @@ function initHeroCanvas() {
   ];
   
   ingredients.forEach((item, i) => {
-    const radius = 5.0 + Math.random() * 1.5;
+    const radius = 2.8 + Math.random() * 0.8;
     const theta = (i / ingredients.length) * Math.PI * 2; // evenly distributed
     const phi = Math.PI / 2 + (Math.random() - 0.5) * 1.2; // mostly around the middle
     item.position.set(
