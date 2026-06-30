@@ -947,26 +947,12 @@ function initCursorEffect() {
   
   let dotX = window.innerWidth / 2;
   let dotY = window.innerHeight / 2;
-  let lastX = dotX;
-  let lastY = dotY;
-  let angle = 45;
+  let angle = -45; // Fixed angle pointing top-left
   let isHovering = false;
   
   document.addEventListener('mousemove', e => {
     dotX = e.clientX;
     dotY = e.clientY;
-    
-    const dx = dotX - lastX;
-    const dy = dotY - lastY;
-    
-    if (Math.hypot(dx, dy) > 2) {
-      const targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-      let diff = targetAngle - (angle % 360);
-      diff = ((diff + 180) % 360 + 360) % 360 - 180;
-      angle += diff;
-      lastX = dotX;
-      lastY = dotY;
-    }
     
     dot.style.left = dotX + 'px';
     dot.style.top = dotY + 'px';
