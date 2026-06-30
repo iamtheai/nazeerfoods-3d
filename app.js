@@ -959,8 +959,11 @@ function initCursorEffect() {
     const dx = dotX - lastX;
     const dy = dotY - lastY;
     
-    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
-      angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+    if (Math.hypot(dx, dy) > 2) {
+      const targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      let diff = targetAngle - (angle % 360);
+      diff = ((diff + 180) % 360 + 360) % 360 - 180;
+      angle += diff;
       lastX = dotX;
       lastY = dotY;
     }
