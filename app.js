@@ -451,8 +451,11 @@ function initHeroCanvas() {
   dirLight2.position.set(0, -3, -5);
   scene.add(dirLight2);
 
+  const heroWrapper = new THREE.Group();
+  scene.add(heroWrapper);
+
   const group = new THREE.Group();
-  scene.add(group);
+  heroWrapper.add(group);
 
   // Load Photorealistic Chicken Leg Image as a Sprite
   const textureLoader = new THREE.TextureLoader();
@@ -510,15 +513,23 @@ function initHeroCanvas() {
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  // GSAP animation linking ScrollTrigger directly to hero platter rotation
-  gsap.to(group.rotation, {
-    x: 0.9,
+  // GSAP animation for smooth scrolling rotation and parallax
+  gsap.to(heroWrapper.rotation, {
     y: Math.PI * 1.5,
     scrollTrigger: {
       trigger: '#home',
       start: 'top top',
       end: 'bottom top',
-      scrub: true
+      scrub: 1.5
+    }
+  });
+  gsap.to(heroWrapper.position, {
+    y: 1.5,
+    scrollTrigger: {
+      trigger: '#home',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.5
     }
   });
 
