@@ -669,19 +669,34 @@ function initScrollPinning() {
     const sceneEl = document.querySelector(`.food-scene[data-item="${index}"]`);
     if (!sceneEl) return;
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: sceneEl,
-        start: "top top",
-        end: "+=160%",  // Pin height - locks scroll during disassembly
-        pin: true,
-        scrub: true,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          updateDisassemblyProgress(scene, self.progress);
+    if (window.innerWidth <= 768) {
+      // Mobile: Disable scroll pinning, auto animate disassembly in a loop
+      gsap.to(scene, {
+        progress: 1,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        onUpdate: () => {
+          updateDisassemblyProgress(scene, scene.progress);
         }
-      }
-    });
+      });
+    } else {
+      // Desktop: Scroll tied disassembly with pinning
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: sceneEl,
+          start: "top top",
+          end: "+=160%",  // Pin height - locks scroll during disassembly
+          pin: true,
+          scrub: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            updateDisassemblyProgress(scene, self.progress);
+          }
+        }
+      });
+    }
   });
 }
 
