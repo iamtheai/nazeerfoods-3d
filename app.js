@@ -476,23 +476,23 @@ function initHeroCanvas() {
 
   const floatingItems = [];
   const ingredients = [
-    createRealIngredient(THREE, 'clove_alpha.png', 1.0),
-    createRealIngredient(THREE, 'clove_alpha.png', 0.8),
-    createRealIngredient(THREE, 'clove_alpha.png', 1.2),
-    createRealIngredient(THREE, 'tomato_alpha.png', 2.0),
-    createRealIngredient(THREE, 'tomato_alpha.png', 1.5),
-    createRealIngredient(THREE, 'chili_alpha.png', 1.8),
-    createRealIngredient(THREE, 'chili_alpha.png', 1.6)
+    createRealIngredient(THREE, 'clove_alpha.png', 2.0),
+    createRealIngredient(THREE, 'clove_alpha.png', 1.8),
+    createRealIngredient(THREE, 'clove_alpha.png', 2.2),
+    createRealIngredient(THREE, 'tomato_alpha.png', 3.5),
+    createRealIngredient(THREE, 'tomato_alpha.png', 2.8),
+    createRealIngredient(THREE, 'chili_alpha.png', 3.0),
+    createRealIngredient(THREE, 'chili_alpha.png', 2.6)
   ];
   
   ingredients.forEach((item, i) => {
-    const radius = 3.5 + Math.random() * 2;
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos(2 * Math.random() - 1);
+    const radius = 5.0 + Math.random() * 1.5;
+    const theta = (i / ingredients.length) * Math.PI * 2; // evenly distributed
+    const phi = Math.PI / 2 + (Math.random() - 0.5) * 1.2; // mostly around the middle
     item.position.set(
       radius * Math.sin(phi) * Math.cos(theta),
-      radius * Math.sin(phi) * Math.sin(theta),
-      radius * Math.cos(phi)
+      radius * Math.cos(phi), // Y axis
+      radius * Math.sin(phi) * Math.sin(theta)  // Z axis
     );
     item.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
     const s = 1.0 + Math.random() * 0.5;
