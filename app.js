@@ -238,6 +238,35 @@ function createBayLeaf(THREE) {
   return mesh;
 }
 
+function createClove(THREE) {
+  const group = new THREE.Group();
+  const stemGeo = new THREE.CylinderGeometry(0.1, 0.05, 0.6, 8);
+  const mat = new THREE.MeshStandardMaterial({ color: 0x3E2723, roughness: 0.9 });
+  const stem = new THREE.Mesh(stemGeo, mat);
+  stem.position.y = -0.15;
+  group.add(stem);
+  const headGeo = new THREE.DodecahedronGeometry(0.15);
+  const head = new THREE.Mesh(headGeo, mat);
+  head.position.y = 0.2;
+  group.add(head);
+  return group;
+}
+
+function createTomato(THREE) {
+  const group = new THREE.Group();
+  const bodyGeo = new THREE.SphereGeometry(0.5, 16, 16);
+  bodyGeo.scale(1, 0.85, 1);
+  const bodyMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.3, metalness: 0.1 });
+  const body = new THREE.Mesh(bodyGeo, bodyMat);
+  group.add(body);
+  const stemGeo = new THREE.CylinderGeometry(0.2, 0.0, 0.05, 5);
+  const stemMat = new THREE.MeshStandardMaterial({ color: 0x228B22 });
+  const stem = new THREE.Mesh(stemGeo, stemMat);
+  stem.position.y = 0.42;
+  group.add(stem);
+  return group;
+}
+
 function createRiceGrains(THREE, count, rMax, hMax) {
   const geom = new THREE.BufferGeometry();
   const pos = [];
@@ -461,6 +490,35 @@ function initHeroCanvas() {
     console.error('Error loading sprite:', error);
   });
 
+  const floatingItems = [];
+  const ingredients = [
+    createClove(THREE), createClove(THREE), createClove(THREE),
+    createTomato(THREE), createTomato(THREE),
+    createChili(THREE), createOnionRing(THREE), createBayLeaf(THREE),
+    createStarAnise(THREE), createCardamom(THREE)
+  ];
+  
+  ingredients.forEach((item, i) => {
+    const radius = 3.5 + Math.random() * 2;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    item.position.set(
+      radius * Math.sin(phi) * Math.cos(theta),
+      radius * Math.sin(phi) * Math.sin(theta),
+      radius * Math.cos(phi)
+    );
+    item.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+    const s = 1.0 + Math.random() * 0.5;
+    item.scale.set(s, s, s);
+    item.userData = {
+      rx: (Math.random() - 0.5) * 0.04,
+      ry: (Math.random() - 0.5) * 0.04,
+      rz: (Math.random() - 0.5) * 0.04
+    };
+    floatingItems.push(item);
+    group.add(item);
+  });
+
   let mouseX = 0, mouseY = 0;
   document.addEventListener('mousemove', e => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -489,7 +547,11 @@ function initHeroCanvas() {
     group.rotation.x += (-mouseY * 0.1 - group.rotation.x + 0.3) * 0.05;
     group.rotation.y += (mouseX * 0.1 - group.rotation.y) * 0.05;
 
-    // Orbit spices removed since we are using a single real GLB model
+    floatingItems.forEach(item => {
+      item.rotation.x += item.userData.rx;
+      item.rotation.y += item.userData.ry;
+      item.rotation.z += item.userData.rz;
+    });
 
     renderer.render(scene, camera);
   })();
