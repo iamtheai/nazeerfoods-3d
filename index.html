@@ -97,6 +97,9 @@
       <div class="scroll-mouse">
         <div class="scroll-dot"></div>
       </div>
+      <div class="scroll-arrows">
+         <span></span><span></span><span></span>
+      </div>
       <span>Scroll to Explore</span>
     </div>
   </section>
@@ -441,69 +444,42 @@
       <span class="section-badge">Visual Feast</span>
       <h2 class="section-title">FOOD GALLERY</h2>
     </div>
-    <div class="gallery-strip" id="gallery-strip">
-      <div class="gallery-track" id="gallery-track">
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" loading="lazy">
-          <div class="gallery-overlay"><span>Mutton Raan</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" loading="lazy">
-          <div class="gallery-overlay"><span>Mutton Nihari</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" loading="lazy">
-          <div class="gallery-overlay"><span>Chicken Lollipop</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" loading="lazy">
-          <div class="gallery-overlay"><span>Mughlai Keema</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/n-dose-chicken.png" alt="N-Dose Chicken" loading="lazy">
-          <div class="gallery-overlay"><span>N-Dose Chicken</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" loading="lazy">
-          <div class="gallery-overlay"><span>Chicken Biryani</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Afghani_Tikka_.png" alt="Afghani Tikka" loading="lazy">
-          <div class="gallery-overlay"><span>Afghani Tikka</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tawa_Chicken_Changeji_With_Bone.png" alt="Tawa Chicken" loading="lazy">
-          <div class="gallery-overlay"><span>Tawa Chicken</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tandoori_Chicken_.png" alt="Tandoori Chicken" loading="lazy">
-          <div class="gallery-overlay"><span>Tandoori Chicken</span></div>
-        </div>
-        <!-- Duplicate for infinite scroll -->
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" loading="lazy">
-          <div class="gallery-overlay"><span>Mutton Raan</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" loading="lazy">
-          <div class="gallery-overlay"><span>Mutton Nihari</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" loading="lazy">
-          <div class="gallery-overlay"><span>Chicken Lollipop</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" loading="lazy">
-          <div class="gallery-overlay"><span>Mughlai Keema</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/n-dose-chicken.png" alt="N-Dose Chicken" loading="lazy">
-          <div class="gallery-overlay"><span>N-Dose Chicken</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" loading="lazy">
-          <div class="gallery-overlay"><span>Chicken Biryani</span></div>
-        </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.1s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-raan.png" alt="Mutton Raan" loading="lazy">
+        <div class="gallery-overlay"><span>Mutton Raan</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.2s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/mutton-Nihari.png" alt="Mutton Nihari" loading="lazy">
+        <div class="gallery-overlay"><span>Mutton Nihari</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.3s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/lolipop.png" alt="Chicken Lollipop" loading="lazy">
+        <div class="gallery-overlay"><span>Chicken Lollipop</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.4s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Mughlai_Keema_.png" alt="Chicken Mughlai Keema" loading="lazy">
+        <div class="gallery-overlay"><span>Mughlai Keema</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.5s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/n-dose-chicken.png" alt="N-Dose Chicken" loading="lazy">
+        <div class="gallery-overlay"><span>N-Dose Chicken</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.6s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2022/07/Chicken-Biryani.png" alt="Chicken Biryani" loading="lazy">
+        <div class="gallery-overlay"><span>Chicken Biryani</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.7s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Chicken_Afghani_Tikka_.png" alt="Afghani Tikka" loading="lazy">
+        <div class="gallery-overlay"><span>Afghani Tikka</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.8s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tawa_Chicken_Changeji_With_Bone.png" alt="Tawa Chicken" loading="lazy">
+        <div class="gallery-overlay"><span>Tawa Chicken</span></div>
+      </div>
+      <div class="gallery-item" data-animate="zoom-in" style="transition-delay: 0.9s">
+        <img src="https://nazeerfoods.com/wp-content/uploads/2021/07/Tandoori_Chicken_.png" alt="Tandoori Chicken" loading="lazy">
+        <div class="gallery-overlay"><span>Tandoori Chicken</span></div>
       </div>
     </div>
   </section>

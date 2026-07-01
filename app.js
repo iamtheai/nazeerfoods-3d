@@ -104,7 +104,7 @@ function initAll() {
   initHeroParticles();
   initFoodScenes();
   initScrollPinning();
-  initGallery();
+
   initHamburger();
   initCursorEffect();
   if (STATE.hasWebGL && typeof THREE !== 'undefined') {
@@ -903,13 +903,7 @@ function initHamburger() {
   });
 }
 
-function initGallery() {
-  const track = document.getElementById('gallery-track');
-  if (track) {
-    track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
-    track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
-  }
-}
+
 
 function initCursorEffect() {
   if (window.innerWidth <= 768) return;

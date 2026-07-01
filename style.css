@@ -523,12 +523,39 @@ img { max-width: 100%; }
   0% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(12px); }
 }
+.scroll-arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+.scroll-arrows span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  transform: rotate(45deg);
+  animation: arrow-down 1.5s infinite;
+  margin-top: -4px;
+}
+.scroll-arrows span:nth-child(2) { animation-delay: 0.2s; }
+.scroll-arrows span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes arrow-down {
+  0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+}
 
 .scroll-indicator > span {
-  font-size: 0.7rem;
-  letter-spacing: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 /* ============================================
@@ -1111,42 +1138,13 @@ section {
   margin-bottom: 3rem;
 }
 
-.gallery-strip {
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-strip::before,
-.gallery-strip::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 150px;
-  z-index: 2;
-}
-
-.gallery-strip::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--dark-3), transparent);
-}
-
-.gallery-strip::after {
-  right: 0;
-  background: linear-gradient(-90deg, var(--dark-3), transparent);
-}
-
-.gallery-track {
+.gallery-grid {
   display: flex;
-  gap: 1.5rem;
-  animation: gallery-scroll 30s linear infinite;
-  width: max-content;
-}
-
-.gallery-track:hover { animation-play-state: paused; }
-
-@keyframes gallery-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .gallery-item {
@@ -1476,6 +1474,12 @@ section {
 
 [data-animate="slide-right"] {
   transform: translateX(50px);
+}
+
+[data-animate="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 [data-animate].animated {
