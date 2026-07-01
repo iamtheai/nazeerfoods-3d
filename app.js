@@ -486,9 +486,9 @@ function initHeroCanvas() {
   ];
   
   ingredients.forEach((item, i) => {
-    const radius = 2.8 + Math.random() * 0.8;
+    const radius = 3.2; // Fixed distance for perfect circle
     const theta = (i / ingredients.length) * Math.PI * 2; // evenly distributed
-    const phi = Math.PI / 2 + (Math.random() - 0.5) * 1.2; // mostly around the middle
+    const phi = Math.PI / 2; // exactly around the middle (equator)
     item.position.set(
       radius * Math.sin(phi) * Math.cos(theta),
       radius * Math.cos(phi), // Y axis
